@@ -1,8 +1,6 @@
-## Proyecto de curso POO-2026-1
-
 # POKE
 
-# Resolución Actividad 1 y 2: Clase Pokemon  📚
+# Resolución Actividad 1: Clase Pokemon  📚
 ## Objetivos 📌
 1. Desarrollar la clase Pokemon.
 2. Definir 10 características que posee la clase Pokemon.
@@ -64,11 +62,23 @@ A partir de lo descrito, Basándonos en la franquicia y videojuegos de pokemon, 
 
 Finalmente, aunque muchas características sean bienvenidas, se consideran cómo las fundamentales y generales para la relación de un pokemon en el mundo virtual.
 
-Por otro lado, a partir de estás características, el pokemon se comportará en un ambiente de combate con acciones que todos los objetos poseen:
+Por otro lado, a partir de estás características, el pokemon se comportará en un ambiente de combate con acciones que todos los objetos poseen:  
+- ***Attack(target: Pokemon, attack_power: float): void***  
+Acción fundamental para la interacción entre objetos. Permite que un pokemon ataque a otro, reduciendo sus puntos de vida.  
+***Parametros***:  
+-target (Pokemon): Pokemon que recibirá el ataque.  
+-attack_power (float): Cantidad de daño que se aplicará al objetivo.  
+  
+- ***Defend(damage_received: float): void***  
+Acción que permite al pokemon reducir el daño recibido durante un ataque, utilizando su capacidad de defensa.  
+***Parámetros***:  
+damage_received (float):  Cantidad de daño que el pokemon recibe antes de aplicar la defensa.  
 
-- ***Atacar()***: Acción fundamental para la interacción entre objetos, afecta principalmente el atributo de *Puntos de vida*.
-- ***Defender()*** : Capacidad que contraresta parcialmente un ataque, cuál podrá recurrir en su turno de juego.
-- ***Evolucionar()*** : Acción modificadora de las estadísticas que afectan el desempeño del pokemon, abre la puerta a la interacción entre el pokemon y su propietario o entrenador, quien será el que manipule al pokemon, según el contexto.
+- ***Evolve(new_level: int, new_ability: str): void***  
+Acción que permite al pokemon aumentar su nivel y mejorar sus estadísticas, pudiendo también adquirir una nueva habilidad especial.  
+***Parámetros***:  
+-new_level (int): Nivel al que evolucionará el pokemon.  
+-new_ability (str): Nueva habilidad que puede adquirir al evolucionar.  
 
 ---
 
@@ -77,19 +87,19 @@ Proponemos la siguiente clase *Pokemon* que afianza la interpretación de un Pok
 
 #### constructor de clase pokemon
  Parametros  de entrada:
- - Vida: default = 10 
- - ataque : default = 1
- - defensea : default = 0.5
- - Nivel: default = 1
- - tipo: variable, asignable por el entorno
- - aspecto: variable, asignable por el retorno
- - habilidd especial : variable, default = ninguno
+ - health_points (int): default = 10 
+ - base_strength (float): default = 1
+ - defense_capacity (float): default = 0.5
+ - level (int): default = 1
+ - type (str): variable, asignable por el entorno
+ - appearance (str): variable, asignable por el retorno
+ - special_ability (str): variable, default = ninguno
 
 de forma que una sintaxis correcta seria: 
 
 ```bash
-- CONSTRUCTOR(vida, ataque, defensa ,nivel, tipo , aspecto, habilidad especial):
-   asignación atributos con parametros
+- CONSTRUCTOR(health_points: int, base_strength: float, defense_capacity: float,
+            level: int, type: str, appearance: str, special_ability: str)
 ```
 
 --- 
@@ -100,20 +110,22 @@ classDiagram
     direction TB
 
     class Pokemon {
-        +name: str
-        +type: str
-        +health_points: int
-        +base_strength: float
-        +level: int
-        +defense_capacity: float
-        +appearance: str
-        +special_ability: str
-        +attacks: list
-        +evolution_stage: int
+        -name: str
+        -type: str
+        -health_points: int
+        -base_strength: float
+        -level: int
+        -defense_capacity: float
+        -appearance: str
+        -special_ability: str
+        -attacks: list
+        -evolution_stage: int
 
-        +attack(target: Pokemon): void
-        +defend(): void
-        +evolve(): void
+        +Pokemon(health_points: int, base_strength: float, defense_capacity: float, level: int, type: str, appearance: str, special_ability: str) 
+
+        +attack(target: Pokemon, attack_power: float): void
+        +defend(damage_received: float): void
+        +evolve(new_level: int, new_ability: str): void
     }
 ```
 Se utiliza los tres metodos principales de ataque, defensa y evolucionar, con sus respectivos atributos para controlar el comportamiento del pokemon en el entorno de combate, además de los atributos generales que caracterizan a cada pokemon.
