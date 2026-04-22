@@ -11,7 +11,7 @@
   - [Gestión de equipos](#gestión-de-equipos)
   - [Entorno de batalla](#entorno-de-batalla)
 - [Acciones del Pokemon](#acciones-del-pokemon)
-  - [attack](#attacktarget-pokemon-move-move-void)
+  - [move](#movetarget-pokemon-move_power-float-void)
   - [defend](#defenddamage_received-float-void)
   - [evolve](#evolvenew_level-int-new_ability-str-void)
 - [Constructor de la clase Pokemon](#constructor-de-la-clase-pokemon)
