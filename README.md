@@ -72,13 +72,13 @@ A partir de lo descrito, y basándonos en la franquicia y videojuegos de Pokémo
 
 ## Acciones del Pokemon
 
-### ***attack(target: Pokemon, move: Move): void***
+### ***move(target: Pokemon, move_power: float): void***
 
-Acción fundamental para la interacción entre objetos. Permite ejecutar un ataque sobre otro Pokémon utilizando un movimiento.
+Acción fundamental para la interacción entre objetos. Permite ejecutar un ataque sobre otro Pokémon, aplicando daño en función del poder del movimiento.
 
 **Parámetros:**
-- `target (Pokemon)`  
-- `move (Move)`  
+- `target (Pokemon)`: Pokémon que recibirá el ataque  
+- `move_power (float)`: Poder base del ataque utilizado  
 
 ---
 
@@ -87,7 +87,7 @@ Acción fundamental para la interacción entre objetos. Permite ejecutar un ataq
 Permite al Pokémon reducir el daño recibido utilizando sus estadísticas defensivas.
 
 **Parámetros:**
-- `damage_received (float)`  
+- `damage_received (float)`: Cantidad de daño antes de aplicar la defensa  
 
 ---
 
